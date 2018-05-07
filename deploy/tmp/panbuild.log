@@ -1,0 +1,61 @@
+62 INFO: PyInstaller: 3.3.1
+62 INFO: Python: 2.7.14
+62 INFO: Platform: Windows-7-6.1.7601-SP1
+62 INFO: wrote Z:\DualMarkdown\deploy\tmp\panbuild\panbuild.spec
+62 INFO: UPX is not available.
+62 INFO: Extending PYTHONPATH with paths
+['Z:\\DualMarkdown\\common', 'Z:\\DualMarkdown\\deploy\\tmp\\panbuild']
+62 INFO: checking Analysis
+78 INFO: Building Analysis because out00-Analysis.toc is non existent
+78 INFO: Initializing module dependency graph...
+78 INFO: Initializing module graph hooks...
+155 INFO: running Analysis out00-Analysis.toc
+155 INFO: Adding Microsoft.VC90.CRT to dependent assemblies of final executable
+  required by c:\python27\python.exe
+233 INFO: Found C:\Windows\WinSxS\Manifests\x86_policy.9.0.microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.1_none_8550c6b5d18a9128.manifest
+233 INFO: Found C:\Windows\WinSxS\Manifests\x86_policy.9.0.microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.4148_none_f47e1bd6f6571810.manifest
+233 INFO: Found C:\Windows\WinSxS\Manifests\x86_policy.9.0.microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.4940_none_f47ed0f6f6564d90.manifest
+233 INFO: Found C:\Windows\WinSxS\Manifests\x86_policy.9.0.microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.6161_none_f480bfaef65491a5.manifest
+296 INFO: Searching for assembly x86_Microsoft.VC90.CRT_1fc8b3b9a1e18e3b_9.0.30729.6161_none ...
+296 INFO: Found manifest C:\Windows\WinSxS\Manifests\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.6161_none_50934f2ebcb7eb57.manifest
+296 INFO: Searching for file msvcr90.dll
+296 INFO: Found file C:\Windows\WinSxS\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.6161_none_50934f2ebcb7eb57\msvcr90.dll
+296 INFO: Searching for file msvcp90.dll
+296 INFO: Found file C:\Windows\WinSxS\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.6161_none_50934f2ebcb7eb57\msvcp90.dll
+296 INFO: Searching for file msvcm90.dll
+296 INFO: Found file C:\Windows\WinSxS\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.6161_none_50934f2ebcb7eb57\msvcm90.dll
+358 INFO: Found C:\Windows\WinSxS\Manifests\x86_policy.9.0.microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.1_none_8550c6b5d18a9128.manifest
+374 INFO: Found C:\Windows\WinSxS\Manifests\x86_policy.9.0.microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.4148_none_f47e1bd6f6571810.manifest
+374 INFO: Found C:\Windows\WinSxS\Manifests\x86_policy.9.0.microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.4940_none_f47ed0f6f6564d90.manifest
+374 INFO: Found C:\Windows\WinSxS\Manifests\x86_policy.9.0.microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.6161_none_f480bfaef65491a5.manifest
+374 INFO: Adding redirect Microsoft.VC90.CRT version (9, 0, 21022, 8) -> (9, 0, 30729, 6161)
+483 INFO: Caching module hooks...
+499 INFO: Analyzing Z:\DualMarkdown\common\panbuild.py
+2510 INFO: Processing pre-find module path hook   distutils
+2730 INFO: Loading module hooks...
+2730 INFO: Loading module hook "hook-distutils.py"...
+2730 INFO: Loading module hook "hook-encodings.py"...
+3368 INFO: Looking for ctypes DLLs
+3368 INFO: Analyzing run-time hooks ...
+3368 INFO: Looking for dynamic libraries
+3415 INFO: Looking for eggs
+3415 INFO: Using Python library C:\Windows\system32\python27.dll
+3431 INFO: Found binding redirects: 
+[BindingRedirect(name=u'Microsoft.VC90.CRT', language=None, arch=u'x86', oldVersion=(9, 0, 21022, 8), newVersion=(9, 0, 30729, 6161), publicKeyToken=u'1fc8b3b9a1e18e3b')]
+3431 INFO: Warnings written to Z:\DualMarkdown\deploy\tmp\panbuild\build\panbuild\warnpanbuild.txt
+3447 INFO: Graph cross-reference written to Z:\DualMarkdown\deploy\tmp\panbuild\build\panbuild\xref-panbuild.html
+3493 INFO: checking PYZ
+3493 INFO: Building PYZ because out00-PYZ.toc is non existent
+3493 INFO: Building PYZ (ZlibArchive) Z:\DualMarkdown\deploy\tmp\panbuild\build\panbuild\out00-PYZ.pyz
+3775 INFO: Building PYZ (ZlibArchive) Z:\DualMarkdown\deploy\tmp\panbuild\build\panbuild\out00-PYZ.pyz completed successfully.
+3822 INFO: checking PKG
+3822 INFO: Building PKG because out00-PKG.toc is non existent
+3822 INFO: Building PKG (CArchive) out00-PKG.pkg
+3852 INFO: Redirecting Microsoft.VC90.CRT version (9, 0, 21022, 8) -> (9, 0, 30729, 6161)
+4851 INFO: Building PKG (CArchive) out00-PKG.pkg completed successfully.
+4867 INFO: Bootloader c:\python27\lib\site-packages\PyInstaller\bootloader\Windows-32bit\run.exe
+4867 INFO: checking EXE
+4867 INFO: Building EXE because out00-EXE.toc is non existent
+4867 INFO: Building EXE from out00-EXE.toc
+4867 INFO: Appending archive to EXE Z:\DualMarkdown\deploy\tmp\panbuild\dist\panbuild.exe
+4882 INFO: Building EXE from out00-EXE.toc completed successfully.

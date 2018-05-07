@@ -1,0 +1,73 @@
+62 INFO: PyInstaller: 3.3.1
+62 INFO: Python: 2.7.14
+62 INFO: Platform: Windows-7-6.1.7601-SP1
+62 INFO: wrote Z:\DualMarkdown\deploy\tmp\teaching_md\teaching_md.spec
+78 INFO: UPX is not available.
+78 INFO: Extending PYTHONPATH with paths
+['Z:\\DualMarkdown\\common', 'Z:\\DualMarkdown\\deploy\\tmp\\teaching_md']
+78 INFO: checking Analysis
+78 INFO: Building Analysis because out00-Analysis.toc is non existent
+78 INFO: Initializing module dependency graph...
+78 INFO: Initializing module graph hooks...
+171 INFO: running Analysis out00-Analysis.toc
+171 INFO: Adding Microsoft.VC90.CRT to dependent assemblies of final executable
+  required by c:\python27\python.exe
+233 INFO: Found C:\Windows\WinSxS\Manifests\x86_policy.9.0.microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.1_none_8550c6b5d18a9128.manifest
+233 INFO: Found C:\Windows\WinSxS\Manifests\x86_policy.9.0.microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.4148_none_f47e1bd6f6571810.manifest
+233 INFO: Found C:\Windows\WinSxS\Manifests\x86_policy.9.0.microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.4940_none_f47ed0f6f6564d90.manifest
+233 INFO: Found C:\Windows\WinSxS\Manifests\x86_policy.9.0.microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.6161_none_f480bfaef65491a5.manifest
+296 INFO: Searching for assembly x86_Microsoft.VC90.CRT_1fc8b3b9a1e18e3b_9.0.30729.6161_none ...
+296 INFO: Found manifest C:\Windows\WinSxS\Manifests\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.6161_none_50934f2ebcb7eb57.manifest
+296 INFO: Searching for file msvcr90.dll
+296 INFO: Found file C:\Windows\WinSxS\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.6161_none_50934f2ebcb7eb57\msvcr90.dll
+296 INFO: Searching for file msvcp90.dll
+296 INFO: Found file C:\Windows\WinSxS\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.6161_none_50934f2ebcb7eb57\msvcp90.dll
+296 INFO: Searching for file msvcm90.dll
+296 INFO: Found file C:\Windows\WinSxS\x86_microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.6161_none_50934f2ebcb7eb57\msvcm90.dll
+358 INFO: Found C:\Windows\WinSxS\Manifests\x86_policy.9.0.microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.1_none_8550c6b5d18a9128.manifest
+358 INFO: Found C:\Windows\WinSxS\Manifests\x86_policy.9.0.microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.4148_none_f47e1bd6f6571810.manifest
+358 INFO: Found C:\Windows\WinSxS\Manifests\x86_policy.9.0.microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.4940_none_f47ed0f6f6564d90.manifest
+358 INFO: Found C:\Windows\WinSxS\Manifests\x86_policy.9.0.microsoft.vc90.crt_1fc8b3b9a1e18e3b_9.0.30729.6161_none_f480bfaef65491a5.manifest
+358 INFO: Adding redirect Microsoft.VC90.CRT version (9, 0, 21022, 8) -> (9, 0, 30729, 6161)
+467 INFO: Caching module hooks...
+483 INFO: Analyzing Z:\DualMarkdown\common\teaching_md.py
+4384 INFO: Processing pre-safe import module hook   _xmlplus
+4601 INFO: Processing pre-find module path hook   distutils
+5865 INFO: Loading module hooks...
+5865 INFO: Loading module hook "hook-distutils.py"...
+5865 INFO: Loading module hook "hook-sysconfig.py"...
+5865 INFO: Loading module hook "hook-xml.py"...
+5958 INFO: Loading module hook "hook-httplib.py"...
+5958 INFO: Loading module hook "hook-_tkinter.py"...
+6223 INFO: checking Tree
+6223 INFO: Building Tree because out00-Tree.toc is non existent
+6223 INFO: Building Tree out00-Tree.toc
+6395 INFO: checking Tree
+6395 INFO: Building Tree because out01-Tree.toc is non existent
+6395 INFO: Building Tree out01-Tree.toc
+6411 INFO: Loading module hook "hook-encodings.py"...
+7050 INFO: Looking for ctypes DLLs
+7082 INFO: Analyzing run-time hooks ...
+7098 INFO: Including run-time hook 'pyi_rth__tkinter.py'
+7098 INFO: Looking for dynamic libraries
+7409 INFO: Looking for eggs
+7409 INFO: Using Python library C:\Windows\system32\python27.dll
+7409 INFO: Found binding redirects: 
+[BindingRedirect(name=u'Microsoft.VC90.CRT', language=None, arch=u'x86', oldVersion=(9, 0, 21022, 8), newVersion=(9, 0, 30729, 6161), publicKeyToken=u'1fc8b3b9a1e18e3b')]
+7425 INFO: Warnings written to Z:\DualMarkdown\deploy\tmp\teaching_md\build\teaching_md\warnteaching_md.txt
+7471 INFO: Graph cross-reference written to Z:\DualMarkdown\deploy\tmp\teaching_md\build\teaching_md\xref-teaching_md.html
+7721 INFO: checking PYZ
+7721 INFO: Building PYZ because out00-PYZ.toc is non existent
+7721 INFO: Building PYZ (ZlibArchive) Z:\DualMarkdown\deploy\tmp\teaching_md\build\teaching_md\out00-PYZ.pyz
+8424 INFO: Building PYZ (ZlibArchive) Z:\DualMarkdown\deploy\tmp\teaching_md\build\teaching_md\out00-PYZ.pyz completed successfully.
+8486 INFO: checking PKG
+8486 INFO: Building PKG because out00-PKG.toc is non existent
+8486 INFO: Building PKG (CArchive) out00-PKG.pkg
+8563 INFO: Redirecting Microsoft.VC90.CRT version (9, 0, 21022, 8) -> (9, 0, 30729, 6161)
+10685 INFO: Building PKG (CArchive) out00-PKG.pkg completed successfully.
+10842 INFO: Bootloader c:\python27\lib\site-packages\PyInstaller\bootloader\Windows-32bit\run.exe
+10842 INFO: checking EXE
+10842 INFO: Building EXE because out00-EXE.toc is non existent
+10842 INFO: Building EXE from out00-EXE.toc
+10842 INFO: Appending archive to EXE Z:\DualMarkdown\deploy\tmp\teaching_md\dist\teaching_md.exe
+10872 INFO: Building EXE from out00-EXE.toc completed successfully.
