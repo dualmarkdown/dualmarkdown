@@ -1,7 +1,7 @@
 @echo off
 set bindir=..\bin
 set base_tmpdir=tmp
-set package_locdir=..\common
+set package_locdir=..\dualmarkdown
 set option=%1
 
 if "%option%" == "clean" (
