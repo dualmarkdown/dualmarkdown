@@ -92,8 +92,13 @@ def prepare(doc):
 	doc.columns_sep=Dimension("0cm")
 	doc.columns_to_patch=[]
 	doc.prev_column=None
+	doc.disable_columns=True
 	doc.custom_counters={}
 
+	#print >> sys.stderr, doc.format 
+	if doc.api_version==(1,17,0,4):
+		doc.disable_columns=False
+	
 	if doc.format=="latex" or doc.format=="beamer":
 
 		if 'header-includes' in doc.metadata:
@@ -137,7 +142,11 @@ def lbegin_lend(elem, doc):
 
 
 def columns(elem,doc):
+	## Desactivar para pandoc nuevo		
 	if type(elem) == pf.Div and 'columns' in elem.classes:
+		## Eliminar de elem.classes
+		if doc.disable_columns:
+			elem.classes.remove('columns')
 		doc.column_count=0
 		doc.prev_column=None
 		#pf.debug("Entra")
@@ -197,6 +206,9 @@ def columns(elem,doc):
 		else:
 			return
 	elif type(elem) == pf.Div and 'column' in elem.classes:
+		## Eliminar de elem.classes
+		if doc.disable_columns:
+			elem.classes.remove('column')
 		doc.column_count=doc.column_count+1
 		if "width" in elem.attributes:
 			width=Dimension(elem.attributes["width"])
