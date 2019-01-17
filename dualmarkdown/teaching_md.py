@@ -92,6 +92,7 @@ def prepare(doc):
 	doc.columns_sep=Dimension("0cm")
 	doc.columns_to_patch=[]
 	doc.prev_column=None
+	doc.enable_traditional_tables=False
 	doc.disable_columns=True
 	doc.custom_counters={}
 
@@ -99,12 +100,15 @@ def prepare(doc):
 	if doc.api_version==(1,17,0,4):
 		doc.disable_columns=False
 	
+	tables = doc.get_metadata('traditional-tables', default=False, builtin=True)
+
+	if tables:
+		doc.enable_traditional_tables=tables
+
 	if doc.format=="latex" or doc.format=="beamer":
 
 		if 'header-includes' in doc.metadata:
-			includes=doc.metadata['header-includes']
-			#pf.debug(type(includes))
-			
+			includes=doc.metadata['header-includes']			
 		else:
 			includes=pf.MetaList([])
 			doc.metadata['header-includes']=includes
@@ -474,7 +478,7 @@ def hack_table(orig_input):
 	    #sys.stdout.write(orig_input)
 
 def table_separators(elem,doc):
-	if isinstance(elem,pf.Table):
+	if isinstance(elem,pf.Table) and doc.enable_traditional_tables:
 		if latex_format(doc.format):
 			doc.metadata['tables']=True
 			raw_item=pf.convert_text(elem, input_format='panflute', output_format='latex')
