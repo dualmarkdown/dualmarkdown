@@ -128,7 +128,10 @@ def lbegin_lend(elem, doc):
 		if re.match('^\\\\lbegin\{.*\}.*$',elem.text) or re.match('^\\\\lend\{.*\}.*$',elem.text):
 			new_text=elem.text.replace("lbegin","begin").replace("lend","end")
 			return [pf.RawInline(new_text,elem.format)]
-
+	elif isinstance(elem,pf.RawBlock) and elem.format==u'tex':
+		if re.match('^\\\\lbegin\{.*\}.*$',elem.text) or re.match('^\\\\lend\{.*\}.*$',elem.text):
+			new_text=elem.text.replace("lbegin","begin").replace("lend","end")
+			return [pf.RawBlock(new_text,elem.format)]
 
 
 # Right. Then we'd need something like:
