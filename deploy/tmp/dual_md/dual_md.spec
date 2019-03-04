@@ -3,8 +3,8 @@
 block_cipher = None
 
 
-a = Analysis(['..\\..\\..\\common\\dual_md.py'],
-             pathex=['Z:\\DualMarkdown\\deploy\\tmp\\dual_md'],
+a = Analysis(['../../../dualmarkdown/dual_md.py'],
+             pathex=['/Users/jcsaez/proyectos/dualmarkdown/deploy/tmp/dual_md'],
              binaries=[],
              datas=[],
              hiddenimports=[],

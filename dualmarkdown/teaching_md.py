@@ -101,6 +101,7 @@ def prepare(doc):
 		doc.disable_columns=False
 	
 	tables = doc.get_metadata('traditional-tables', default=False, builtin=True)
+	doc.autounderlined=doc.get_metadata('autounderlined', default=False, builtin=True) and latex_format(doc.format)
 
 	if tables:
 		doc.enable_traditional_tables=tables
@@ -661,6 +662,16 @@ def beamer_transitions(elem,doc):
 		elem.content = [left] + list(elem.content) + [right]
 		return None
 			
+def autounderlined(elem,doc):
+	if doc.autounderlined and type(elem) == pf.Link:
+		##Create a span with bogus content but class underline
+		span=pf.Span(pf.Str('More'), pf.Space, pf.Str('words.'),classes=["underline"])
+		## Force link's content to become the span's content
+		span.content=elem.content
+		## Put the span inside the link 
+		elem.content=[span]
+		#return the modified link
+		return elem 
 
 def advanced_blocks(elem,doc):
 	if type(elem) == pf.Div and doc.format == 'beamer':
@@ -746,7 +757,7 @@ def advanced_blocks(elem,doc):
 def main(doc=None):
 	#inputf = open('test.json', 'r')
 	inputf=sys.stdin
-	return pf.run_filters(actions=[lbegin_lend,exercise_filter,columns,pagebreaks,custom_span,filter_out_notes,custom_fontsize,alignment,advanced_blocks,beamer_transitions,table_separators,figure_extensions], doc=doc,input_stream=inputf,prepare=prepare)
+	return pf.run_filters(actions=[lbegin_lend,exercise_filter,columns,pagebreaks,autounderlined,custom_span,filter_out_notes,custom_fontsize,alignment,advanced_blocks,beamer_transitions,table_separators,figure_extensions], doc=doc,input_stream=inputf,prepare=prepare)
 
 if __name__ == "__main__":
 	main()
