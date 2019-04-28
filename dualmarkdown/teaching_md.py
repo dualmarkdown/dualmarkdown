@@ -102,6 +102,7 @@ def prepare(doc):
 	
 	tables = doc.get_metadata('traditional-tables', default=False, builtin=True)
 	doc.autounderlined=doc.get_metadata('autounderlined', default=False, builtin=True) and latex_format(doc.format)
+	framed_on=doc.get_metadata('includeframed', default=True, builtin=True) and latex_format(doc.format)
 
 	if tables:
 		doc.enable_traditional_tables=tables
@@ -118,11 +119,13 @@ def prepare(doc):
 		cont.append(pf.MetaInlines(pf.RawInline('\n\\usepackage{tikz}','tex')))
 		cont.append(pf.MetaInlines(pf.RawInline('\n\\usetikzlibrary{calc,backgrounds,arrows,shapes,matrix,fit,patterns,trees,positioning,decorations.pathreplacing,automata}','tex')))
 		cont.append(pf.MetaInlines(pf.RawInline('\n\\usepackage{standalone}','tex')))
+		cont.append(pf.MetaInlines(pf.RawInline('\n\\usepackage{color}','tex')))
 		#Shaded enviroments
-		cont.append(pf.MetaInlines(pf.RawInline('\n\\usepackage{framed,color}','tex')))
-		cont.append(pf.MetaInlines(pf.RawInline('\n\\definecolor{shadecolor}{gray}{0.9}','tex')))
-		cont.append(pf.MetaInlines(pf.RawInline('\n\\definecolor{gray}{rgb}{0.5,0.5,0.5}','tex')))
-		cont.append(pf.MetaInlines(pf.RawInline('\n\\usepackage{framed}','tex')))
+		if framed_on:
+			cont.append(pf.MetaInlines(pf.RawInline('\n\\usepackage{framed,color}','tex')))
+			cont.append(pf.MetaInlines(pf.RawInline('\n\\definecolor{shadecolor}{gray}{0.9}','tex')))
+			cont.append(pf.MetaInlines(pf.RawInline('\n\\definecolor{gray}{rgb}{0.5,0.5,0.5}','tex')))
+			cont.append(pf.MetaInlines(pf.RawInline('\n\\usepackage{framed}','tex')))
 
 def lbegin_lend(elem, doc):
 	if isinstance(elem,pf.RawInline) and elem.format==u'tex':
