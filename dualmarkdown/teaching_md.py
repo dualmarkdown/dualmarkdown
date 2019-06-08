@@ -100,6 +100,7 @@ def prepare(doc):
 	if doc.api_version==(1,17,0,4):
 		doc.disable_columns=False
 	
+	doc.pandoc_columns=doc.get_metadata('pandoc_columns', default=False, builtin=True)
 	tables = doc.get_metadata('traditional-tables', default=False, builtin=True)
 	doc.autounderlined=doc.get_metadata('autounderlined', default=False, builtin=True) and latex_format(doc.format)
 	framed_on=doc.get_metadata('includeframed', default=True, builtin=True) and latex_format(doc.format)
@@ -154,7 +155,7 @@ def lbegin_lend(elem, doc):
 
 def columns(elem,doc):
 	## Desactivar para pandoc nuevo		
-	if type(elem) == pf.Div and 'columns' in elem.classes:
+	if type(elem) == pf.Div and 'columns' in elem.classes and not doc.pandoc_columns:
 		## Eliminar de elem.classes
 		if doc.disable_columns:
 			elem.classes.remove('columns')
@@ -216,7 +217,7 @@ def columns(elem,doc):
 			return pf.Table(*rows)	
 		else:
 			return
-	elif type(elem) == pf.Div and 'column' in elem.classes:
+	elif type(elem) == pf.Div and 'column' in elem.classes and not doc.pandoc_columns:
 		## Eliminar de elem.classes
 		if doc.disable_columns:
 			elem.classes.remove('column')
