@@ -1,0 +1,7 @@
+---
+geometry: "paperwidth=12.81cm,paperheight=9.81cm,top=0.2cm, bottom=0.2cm, left=0.2cm, right=0.2cm"
+fontsize: 8pt
+documentclass: scrartcl
+#header-includes: 
+# - \usepackage[loadonly]{enumitem}  
+---

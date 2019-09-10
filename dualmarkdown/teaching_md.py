@@ -104,6 +104,8 @@ def prepare(doc):
 	tables = doc.get_metadata('traditional-tables', default=False, builtin=True)
 	doc.autounderlined=doc.get_metadata('autounderlined', default=False, builtin=True) and latex_format(doc.format)
 	framed_on=doc.get_metadata('includeframed', default=True, builtin=True) and latex_format(doc.format)
+	doc.embed_pdfnotes=doc.get_metadata('embed_pdfnotes', default=False, builtin=True) and doc.format=="beamer"
+	doc.note_counter=1
 
 	if tables:
 		doc.enable_traditional_tables=tables
@@ -127,6 +129,14 @@ def prepare(doc):
 			cont.append(pf.MetaInlines(pf.RawInline('\n\\definecolor{shadecolor}{gray}{0.9}','tex')))
 			cont.append(pf.MetaInlines(pf.RawInline('\n\\definecolor{gray}{rgb}{0.5,0.5,0.5}','tex')))
 			cont.append(pf.MetaInlines(pf.RawInline('\n\\usepackage{framed}','tex')))
+
+		if doc.embed_pdfnotes:
+			cont.append(pf.MetaInlines(pf.RawInline(r'\usepackage[final]{pdfpages}','tex')))
+			cont.append(pf.MetaInlines(pf.RawInline(r'\usepackage{pgfpages}','tex')))
+			cont.append(pf.MetaInlines(pf.RawInline(r'\setbeameroption{show notes on second screen=bottom}','tex'))) #  on second screen=bottom}
+			#cont.append(pf.MetaInlines(pf.RawInline(r'\setbeamertemplate{note page}{\pagecolor{yellow!5}\vfill\insertnote\vfill}','tex')))
+			
+
 
 def lbegin_lend(elem, doc):
 	if isinstance(elem,pf.RawInline) and elem.format==u'tex':
@@ -758,10 +768,18 @@ def advanced_blocks(elem,doc):
 		return
 
 
+def add_pdfnotes(elem,doc):
+	if doc.embed_pdfnotes and isinstance(elem,pf.Header) and elem.level==2:
+		tag=r"\note{\includegraphics[page=%d,width=1.1\textwidth]{notes.pdf}}" % doc.note_counter
+		doc.note_counter=doc.note_counter+1
+		return [elem,pf.RawBlock(tag,"latex")]
+
+
 def main(doc=None):
 	#inputf = open('test.json', 'r')
 	inputf=sys.stdin
-	return pf.run_filters(actions=[lbegin_lend,exercise_filter,columns,pagebreaks,autounderlined,custom_span,filter_out_notes,custom_fontsize,alignment,advanced_blocks,beamer_transitions,table_separators,figure_extensions], doc=doc,input_stream=inputf,prepare=prepare)
+
+	return pf.run_filters(actions=[lbegin_lend,exercise_filter,columns,pagebreaks,autounderlined,custom_span,filter_out_notes,custom_fontsize,alignment,advanced_blocks,beamer_transitions,table_separators,figure_extensions,add_pdfnotes], doc=doc,input_stream=inputf,prepare=prepare)
 
 if __name__ == "__main__":
 	main()
