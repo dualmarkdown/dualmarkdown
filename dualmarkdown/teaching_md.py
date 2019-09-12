@@ -130,10 +130,10 @@ def prepare(doc):
 			cont.append(pf.MetaInlines(pf.RawInline('\n\\definecolor{gray}{rgb}{0.5,0.5,0.5}','tex')))
 			cont.append(pf.MetaInlines(pf.RawInline('\n\\usepackage{framed}','tex')))
 
-		if doc.embed_pdfnotes:
-			cont.append(pf.MetaInlines(pf.RawInline(r'\usepackage[final]{pdfpages}','tex')))
-			cont.append(pf.MetaInlines(pf.RawInline(r'\usepackage{pgfpages}','tex')))
-			cont.append(pf.MetaInlines(pf.RawInline(r'\setbeameroption{show notes on second screen=bottom}','tex'))) #  on second screen=bottom}
+		#if doc.embed_pdfnotes:
+		#	cont.append(pf.MetaInlines(pf.RawInline(r'\usepackage[final]{pdfpages}','tex')))
+		#	cont.append(pf.MetaInlines(pf.RawInline(r'\usepackage{pgfpages}','tex')))
+		#	cont.append(pf.MetaInlines(pf.RawInline(r'\setbeameroption{show notes on second screen=bottom}','tex'))) #  on second screen=bottom}
 			#cont.append(pf.MetaInlines(pf.RawInline(r'\setbeamertemplate{note page}{\pagecolor{yellow!5}\vfill\insertnote\vfill}','tex')))
 			
 
@@ -778,6 +778,8 @@ def add_pdfnotes(elem,doc):
 def main(doc=None):
 	#inputf = open('test.json', 'r')
 	inputf=sys.stdin
+	if doc is None:
+		pf.debug("NONERRR")
 
 	return pf.run_filters(actions=[lbegin_lend,exercise_filter,columns,pagebreaks,autounderlined,custom_span,filter_out_notes,custom_fontsize,alignment,advanced_blocks,beamer_transitions,table_separators,figure_extensions,add_pdfnotes], doc=doc,input_stream=inputf,prepare=prepare)
 

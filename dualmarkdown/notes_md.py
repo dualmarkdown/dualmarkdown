@@ -73,6 +73,8 @@ def remove_notes(elem,doc):
 			return []
 		return elem
 	elif isinstance(elem,pf.Doc) or isinstance(elem,pf.MetaValue) or isinstance(elem.parent,pf.MetaValue):
+		## Hack to prevent title from showing
+		doc.metadata['title']=pf.MetaBool(False)
 		return elem	
 	else:
 		#if isinstance(elem.parent,pf.Header):
