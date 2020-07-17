@@ -663,18 +663,27 @@ def alignment(elem,doc):
 
 
 def beamer_transitions(elem,doc):
-	if (type(elem) == pf.Span or type(elem) == pf.Div) and ("only" in elem.attributes):
-		only=elem.attributes["only"]
+	if (type(elem) == pf.Span or type(elem) == pf.Div):
+
+		if "only" in elem.attributes:
+			keyword="only"
+		elif "onslide" in elem.attributes:
+			keyword="onslide"
+		else:
+			return 
+
+		only=elem.attributes[keyword] 
 		is_span=(type(elem) == pf.Span)
-		del elem.attributes["only"]
+		del elem.attributes[keyword]
 
 		if doc.format != 'beamer':
 			return list(elem.content) ## return None
 
-		left=create_raw_item(is_span,'\\only<'+only+'>{' , format='latex')
+		left=create_raw_item(is_span,('\\%s<' % keyword)+only+'>{' , format='latex')
 		right=create_raw_item(is_span,'}', format='latex')
 		elem.content = [left] + list(elem.content) + [right]
 		return None
+
 			
 def autounderlined(elem,doc):
 	if doc.autounderlined and type(elem) == pf.Link:
